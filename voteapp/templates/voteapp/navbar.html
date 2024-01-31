@@ -1,0 +1,51 @@
+<nav class="navbar bg-dark-subtle shadow-sm border-bottom pad-r-l">
+    <div class="container-fluid">
+
+        <a class="navbar-brand" href="{% url 'index' %}">
+            <h4 class="fw-bold">E-Voting - KSCODE</h4>
+        </a>
+
+        <button class="navbar-toggler bg-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+                <h3 class="offcanvas-title" id="offcanvasNavbarLabel">E-Voting - KSCODE</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+
+            <div class="offcanvas-body">
+
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    
+                    {% if request.user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="">
+                                <h5 class="">Vote</h5>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'logout' %}">
+                                <h5 class="btn btn-outline-primary btn-lg">Logout</h5>
+                            </a>
+                        </li>
+                    {% else %}                     
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'signin' %}">
+                                <h5 class="btn btn-outline-primary btn-lg">Login</h5>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'signup' %}">
+                                <h5 class="btn btn-primary btn-lg">SignUp</h5>
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>

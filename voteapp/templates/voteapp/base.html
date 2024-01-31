@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% comment %} <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}" /> {% endcomment %}
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        
+        <title>Evoting - KSCODE </title>
+    
+    </head>
+
+    <body>
+
+        <div id="preloader-spin" class="show bg-white d-flex align-items-center justify-content-center">
+            <div class="infinity-path">
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+
+
+        <header class="fixed-top">
+            {% include 'voteapp/navbar.html' %}
+        </header>
+
+        <main>
+            {% block content %}
+        
+            {% endblock content %}
+        </main>
+
+        <!-- Footer-->
+        <footer class="py-4 bg-dark-subtle shadow-sm border-top" >
+            <div class="container"><p class="m-0 text-center text-dark fw-">Copyright &copy; Your Website 2023</p></div>
+        </footer>
+
+        <!-- Bootstrap core JS-->
+        <script src="{% static 'js/app.js'%}"></script>
+        
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" ></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    </body>
+
+</html>

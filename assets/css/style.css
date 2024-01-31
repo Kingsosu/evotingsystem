@@ -1,0 +1,215 @@
+*{
+    box-sizing: border-box;
+}
+
+
+.pad-r-l{
+    padding: 20px 30px;
+}
+
+main{
+    margin-top: 100px;
+    min-height: 100vh;
+}
+
+.vote-small{
+  margin-bottom: 5px;
+  display: block;
+}
+.navbar-brand:hover{
+    text-decoration: underline;
+}
+
+.card-common {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    margin: auto;
+}
+
+.formContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
+
+
+/* Signup form */
+
+.signupForm{
+    width: 400px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
+    padding: 20px 20px 20px 20px;
+    border-radius: 10px;            
+}
+
+.signupForm h4, .signupForm small{
+    text-align: center;
+}
+
+.signupForm button{
+    width: 100%;
+}
+
+
+.signupForm .error{
+    color: red;
+    font-size: 14px;
+}
+
+.loginError{
+    text-align: center !important;
+    margin: auto;
+    color: red;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* VoteContainer styles */
+
+.voteContainer{
+    display: flex;
+    /* border: 1px solid red; */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    padding: 10px 0px 0px 0px;
+}
+
+.result-container{
+    display: flex;
+    /* border: 1px solid red; */
+    align-items: center;
+    justify-content: center;
+    /* height: 80vh; */
+}
+
+.sub-container{
+    width: inherit
+}
+
+.result-container h4{
+    text-decoration: underline;
+    margin-bottom: 20px;
+}
+
+.result-container small{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.voteContainer button{
+    margin: 10px 0px 10px 0px;
+}
+
+.voteContainer label{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+
+
+/**
+  * infinity-path
+  *
+  * @author jh3y
+*/
+.infinity-path {
+  --size: 120;
+  --speed: 0.65;
+  height: calc(var(--size) * 1px);
+  position: relative;
+  width: calc(var(--size) * 1px);
+
+  & > div {
+    height: calc(var(--size) * 1px);
+    width: calc(var(--size) * 1px);
+    border-radius: 100%;
+    border: calc(var(--size) / 4 * 1px) solid rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation-duration: calc(var(--speed) * 1s);
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-name: infinity-spin;
+    transform: translate(calc(var(--translate) * 1%), 0) translate(calc(var(--translate-2) * 1px), 0);
+
+    &:before {
+      content: '';
+      height: calc(var(--size) / 4 * 1px);
+      width: calc(var(--size) / 4 * 1px);
+      border-radius: 100%;
+      background: #0d6efd;
+      position: absolute;
+      top: 50%;
+      animation: infinity-vanish calc(var(--speed) * 2s) infinite reverse steps(1);
+      transform: translate(calc(var(--translate-2) * 2px), calc(var(--translate) * 1%));
+    }
+  }
+
+  & > div:nth-of-type(1) {
+    --translate: -50;
+    --translate-2: calc(var(--size) / 8);
+    &:before {
+      right: 0;
+    }
+  }
+
+  & > div:nth-of-type(2) {
+    --translate: 50;
+    --translate-2: calc(var(--size) / 8 * -1);
+    animation-delay: calc(var(--speed) * 1s);
+    animation-direction: reverse;
+
+    &:before {
+      left: 0;
+      transform: translate(calc(var(--size) / 4 * -1px), -50%);
+      animation-direction: normal;
+    }
+  }
+}
+
+@keyframes infinity-vanish {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes infinity-spin {
+  from {
+    transform: translate(calc(var(--translate) * 1%), 0) translate(calc(var(--translate-2) * 1px), 0) rotate(0deg);
+  }
+  to {
+    transform: translate(calc(var(--translate) * 1%), 0) translate(calc(var(--translate-2) * 1px), 0) rotate(360deg);
+  }
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+#preloader-spin{
+    width: 100vw;
+    height: 100vh;
+    /*transition: all .5s ease-out; */
+    opacity: 0;
+    background-color: #0d6efd;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+    z-index: 9999;
+    position: fixed;
+    visibility: hidden;
+    top: 0;
+    left: 0;
+}
+#preloader-spin.show {
+    opacity: 1;
+    visibility: visible;
+}
